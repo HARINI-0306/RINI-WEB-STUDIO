@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rini Web Studio | Premium Agency</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#070a12;
+color:white;
+overflow-x:hidden;
+}
+
+/* GLOW BACKGROUND */
+.glow1,.glow2{
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.5;
+z-index:-1;
+}
+
+.glow1{
+background:#6d28d9;
+top:-150px;
+left:-150px;
+}
+
+.glow2{
+background:#2563eb;
+bottom:-150px;
+right:-150px;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 8%;
+position:fixed;
+width:100%;
+top:0;
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.05);
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+padding:0 10%;
+}
+
+.hero h1{
+font-size:60px;
+line-height:1.1;
+}
+
+.hero span{
+background:linear-gradient(45deg,#7c3aed,#06b6d4);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:20px;
+color:#cbd5e1;
+max-width:600px;
+}
+
+/* BUTTON */
+.btn{
+margin-top:30px;
+padding:12px 25px;
+border-radius:30px;
+background:linear-gradient(45deg,#7c3aed,#2563eb);
+color:white;
+text-decoration:none;
+}
+
+/* SERVICES */
+.section{
+padding:100px 8%;
+}
+
+.title{
+font-size:40px;
+text-align:center;
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* 3D CARD */
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:20px;
+transition:0.3s;
+transform-style:preserve-3d;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card h3{
+margin-top:10px;
+}
+
+/* CASE STUDY */
+.case{
+display:flex;
+gap:30px;
+align-items:center;
+padding:40px;
+border-radius:20px;
+background:linear-gradient(135deg,#1e1b4b,#0f172a);
+margin-bottom:20px;
+transition:0.5s;
+}
+
+.case:hover{
+transform:scale(1.02);
+background:linear-gradient(135deg,#7c3aed,#2563eb);
+}
+
+.case img{
+width:200px;
+border-radius:15px;
+}
+
+/* REVIEWS */
+.review{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.company-details{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:25px;
+}
+
+.company-details h3{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.company-details p{
+    color:#cbd5e1;
+    margin:5px 0;
+}
+
+/* CONTACT */
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+input,textarea{
+padding:12px;
+border-radius:10px;
+border:none;
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+button{
+padding:12px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#7c3aed,#2563eb);
+color:white;
+cursor:pointer;
+}
+
+/* FLOAT WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+text-decoration:none;
+z-index:1000;
+}
+
+/* ANIMATION CLASS */
+.hidden{
+opacity:0;
+transform:translateY(60px);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<!-- NAV -->
+<nav>
+<div><b>Rini Web Studio</b></div>
+<div>
+<a href="#home">home</a>
+<a href="#services">Services</a>
+<a href="#Our Work">Our Work</a>
+<a href="#reviews">Review</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<h1 class="anim">We Build <span>Premium Websites</span> That Grow Businesses</h1>
+<p class="anim">Turn your business into a powerful online brand with a website that converts visitors into customers</p>
+<a href="#contact" class="btn anim">Let's Build Your Website Today</a>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+<h2 class="title anim">Services</h2>
+
+<div class="grid">
+
+<div class="card anim">
+<h3>Business Websites</h3>
+<p>Professional websites built for businesses to look more trustworthy, reach more customers online, and grow their digital identity.</p>
+</div>
+
+<div class="card anim">
+<h3>E-Commerce</h3>
+<p>High-converting e-commerce websites that make it easy for customers to browse products, add to cart, and complete purchases with a smooth and professional experience.</p>
+</div>
+
+<div class="card anim">
+<h3>Portfolio Sites</h3>
+<p>Clean and responsive portfolio websites built to showcase your talent, projects, and experience in a way that makes a strong first impression on clients and employers.</p>
+</div>
+
+<div class="card anim">
+<h3>Google Ads</h3>
+<p>We help businesses run effective Google Ads campaigns that reach potential customers at the right time and turn searches into real inquiries and sales.</p>
+</div>
+
+</div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="Our Work" class="section">
+
+<h2 class="title">Our Work</h2>
+
+<div class="case">
+  <img src="images/Screenshot 2026-06-16 190458.png" alt="KFBuyers Website">
+
+  <div>
+    <h3>KFBuyers – Old Silk Sarees & Silver Buying Website</h3>
+    
+    <p>
+      A dedicated business website designed for buying old silk sarees and old silver items.
+      The platform builds trust with customers by clearly presenting buying details, service process,
+      and easy contact options for quick transactions.
+    </p>
+
+    <p>
+      Focused on simplicity, credibility, and mobile-friendly design to help customers easily reach
+      the business and get instant responses for their valuables.
+    </p>
+  </div>
+</div>
+
+
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+<h2 class="title anim">Client Reviews</h2>
+
+<div class="review anim">
+“I'm not tech-savvy at all, but they made the whole process so easy. They explained every step, set up the contact forms, and even added an appointment booking feature. -KFBUYERS”
+</div>
+
+<div class="review anim">
+“I am a collage student for my collage project i went to them they made the project very efficiently and budget friendly. -STUDENT”
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+
+    <h2 class="title anim">Get Your Website</h2>
+
+    <form class="anim">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea rows="5" placeholder="Tell us about your project"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+        <div class="company-details anim">
+        <h3>Rini Web Studio</h3>
+        <p>📧 rinirecommend@gmail.com</p>
+        <p>📞 9600366692</p>
+    </div>
+
+</section>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/919443566692">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+/* GSAP ANIMATIONS */
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".anim").forEach(el=>{
+gsap.from(el,{
+y:60,
+opacity:0,
+duration:1,
+scrollTrigger:{
+trigger:el,
+start:"top 85%"
+}
+});
+});
+
+</script>
+
+</body>
+</html>
